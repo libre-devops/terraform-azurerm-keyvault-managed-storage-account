@@ -1,5 +1,5 @@
 resource "azurerm_key_vault_managed_storage_account" "sa_kv_iam" {
-  name                         = "${azurerm_storage_account.sa.name}-managed-kv"
+  name                         = azurerm_storage_account.sa.name
   key_vault_id                 = azurerm_key_vault.keyvault.id
   storage_account_id           = azurerm_storage_account.sa.id
   storage_account_key          = var.storage_account_key_to_regenerate

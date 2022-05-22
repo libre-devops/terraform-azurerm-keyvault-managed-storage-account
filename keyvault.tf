@@ -17,8 +17,8 @@ resource "azurerm_key_vault_access_policy" "client_access" {
 resource "azurerm_key_vault_access_policy" "sa_access" {
   count        = var.give_sa_full_access_to_kv == true && var.identity_type == "SystemAssigned" ? 1 : 0
   key_vault_id = azurerm_key_vault.keyvault.id
-  tenant_id    = azurerm_storage_account.sa.identity[0].principal_id
-  object_id    = azurerm_storage_account.sa.identity[0].tenant_id
+  tenant_id    = azurerm_storage_account.sa.identity[0].tenant_id
+  object_id    = azurerm_storage_account.sa.identity[0].principal_id
 
   key_permissions         = tolist(var.full_key_permissions)
   secret_permissions      = tolist(var.full_secret_permissions)
