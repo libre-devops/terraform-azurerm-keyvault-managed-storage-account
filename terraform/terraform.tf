@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.0.9"
+  required_version = ">= 1.1.0, < 1.2.0"
   #Use the latest by default, uncomment below to pin or use hcl.lck
   required_providers {
     azurerm = {
