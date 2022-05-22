@@ -32,8 +32,9 @@ module "network" {
   }
 }
 
+#tfsec:ignore:azure-keyvault-no-purge tfsec:ignore:azure-keyvault-specify-network-acl
 module "kv_managed_sa" {
-  source = "../"
+  source = "registry.terraform.io/libre-devops/keyvault-managed-storage-account/azurerm"
 
   rg_name  = module.rg.rg_name
   location = module.rg.rg_location
