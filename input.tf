@@ -15,6 +15,12 @@ variable "allow_nested_items_to_be_public" {
   default     = false
 }
 
+variable "azure_kv_object_id" {
+  type        = string
+  description = "The object id for Azure Key Vault service in your tenant, the default for the Libre DevOps tenant is set as the default value, this may not be the same for you"
+  default     = "2f52b87a-b032-421f-b0fb-3c8be030d053"
+}
+
 variable "container_delete_retention_policy" {
   type        = map(any)
   description = "Are container delete retention policies needed? set variable to with a non empty value to use"

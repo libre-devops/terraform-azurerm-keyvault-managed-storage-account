@@ -31,6 +31,7 @@ No modules.
 | <a name="input_access_tier"></a> [access\_tier](#input\_access\_tier) | The access tier for the storage account, e.g hot | `string` | n/a | yes |
 | <a name="input_account_tier"></a> [account\_tier](#input\_account\_tier) | The account tier of the storage account | `string` | `"Standard"` | no |
 | <a name="input_allow_nested_items_to_be_public"></a> [allow\_nested\_items\_to\_be\_public](#input\_allow\_nested\_items\_to\_be\_public) | Whether nested blobs can be set to public from a private top level container | `bool` | `false` | no |
+| <a name="input_azure_kv_object_id"></a> [azure\_kv\_object\_id](#input\_azure\_kv\_object\_id) | The object id for Azure Key Vault service in your tenant, the default for the Libre DevOps tenant is set as the default value, this may not be the same for you | `string` | `"2f52b87a-b032-421f-b0fb-3c8be030d053"` | no |
 | <a name="input_container_delete_retention_policy"></a> [container\_delete\_retention\_policy](#input\_container\_delete\_retention\_policy) | Are container delete retention policies needed? set variable to with a non empty value to use | `map(any)` | `{}` | no |
 | <a name="input_custom_domain"></a> [custom\_domain](#input\_custom\_domain) | Are customs domain needed? set variable to with a non empty value to use | `map(any)` | `{}` | no |
 | <a name="input_customer_managed_key"></a> [customer\_managed\_key](#input\_customer\_managed\_key) | Are customer managed needed? set variable to with a non empty value to use | `map(any)` | `{}` | no |
