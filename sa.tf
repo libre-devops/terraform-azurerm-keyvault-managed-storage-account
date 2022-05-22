@@ -1,7 +1,7 @@
 #checkov:skip=CKV2_AZURE_1:CMKs are not considered in this module
 #checkov:skip=CKV2_AZURE_18:CMKs are not considered in this module
 #checkov:skip=CKV_AZURE_33:Storage logging is not configured by default in this module
-#tfsec:ignore:azure-storage-queue-services-logging-enabled tfsec:ignore:azure-storage-allow-microsoft-service-bypass
+#tfsec:ignore:azure-storage-queue-services-logging-enabled tfsec:ignore:azure-storage-allow-microsoft-service-bypass #tfsec:ignore:azure-storage-default-action-deny
 resource "azurerm_storage_account" "sa" {
   name                            = var.storage_account_name
   resource_group_name             = var.rg_name
@@ -40,7 +40,7 @@ resource "azurerm_storage_account" "sa" {
     for_each = lookup(var.storage_account_properties, "network_rules", null) == null ? [] : [1]
     content {
       bypass                     = try(toset(var.storage_account_properties.network_rules.bypass), ["AzureServices"])
-      default_action             = try(toset(var.storage_account_properties.network_rules.default_action), "Deny")
+      default_action             = lookup(var.storage_account_properties.network_rules, "default_action", "Deny")
       ip_rules                   = try(toset(var.storage_account_properties.network_rules.ip_rules), [])
       virtual_network_subnet_ids = try(toset(var.storage_account_properties.network_rules.subnets), null)
 
